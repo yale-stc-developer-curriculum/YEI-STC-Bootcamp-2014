@@ -7,11 +7,11 @@
 # https://www.linuxquestions.org/questions/programm \
 # ing-9/bash-mp3-to-ogg-script-535632/
 
-# find all the mp3's
+# find all the mp3's in the current directory
 find . -iname "*.mp3" | while read file
 # for each mp3..
 do
-# pull the metadata / tags
+# pull the metadata / tags from the mp3
   eval "`mp3info2 -p "ARTIST='%a' LABEL='%l' TRACK='%n'
                     TITLE='%t' GENRE='%g' YEAR='%y' 
                     COMMENT='%c'" "$file"`"
