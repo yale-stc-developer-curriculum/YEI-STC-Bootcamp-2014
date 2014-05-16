@@ -60,6 +60,9 @@ function setupPreso(load_slides, prefix) {
   // give us the ability to disable tracking via url parameter
   if(query.track == 'false') mode.track = false;
 
+  // make sure that the next view doesn't bugger things on the first load
+  if(query.next == 'true')   mode.next = true;
+
   // Make sure the slides always look right.
   // Better would be dynamic calculations, but this is enough for now.
   $(window).resize(function(){location.reload();});
@@ -83,6 +86,7 @@ function setupPreso(load_slides, prefix) {
   $("#sendFeedback").click(function() {
     sendFeedback($( "input:radio[name=rating]:checked" ).val(), $("textarea#feedback").val())
   });
+  $("#editSlide").click(function() { editSlide(); });
 
   $("textarea#question").val(questionPrompt);
   $("textarea#feedback").val(feedbackPrompt);
@@ -90,7 +94,9 @@ function setupPreso(load_slides, prefix) {
   $("textarea#feedback").focus(function() { clearIf($(this), feedbackPrompt) });
 
   // Open up our control socket
-  connectControlChannel();
+  if(mode.track) {
+    connectControlChannel();
+  }
 /*
   ws           = new WebSocket('ws://' + location.host + '/control');
   ws.onopen    = function()  { connected();          };
@@ -195,17 +201,33 @@ function checkSlideParameter() {
 	}
 }
 
+function currentSlideFromName(name) {
+  var count = 0;
+	slides.each(function(s, slide) {
+	  if (name == $(slide).find(".content").attr("ref") ) {
+	    found = count;
+	    return false;
+	  }
+	  count++;
+	});
+	return count;
+}
+
 function currentSlideFromParams() {
 	var result;
 	if (result = window.location.hash.match(/#([0-9]+)/)) {
 		return result[result.length - 1] - 1;
 	}
+	else {
+	  var hash = window.location.hash
+	  return currentSlideFromName(hash.substr(1, hash.length))
+  }
 }
 
 function setupSlideParamsCheck() {
 	var check = function() {
 		var currentSlide = currentSlideFromParams();
-		if (slidenum != currentSlide) {
+		if (!isNaN(currentSlide) && slidenum != currentSlide) {
 			slidenum = currentSlide;
 			showSlide();
 		}
@@ -283,7 +305,7 @@ function showSlide(back_step, updatepv) {
   $('#slideFilename').text(fileName);
 
   // Update presenter view, if we spawned one
-	if (updatepv && 'presenterView' in window) {
+	if (updatepv && 'presenterView' in window && ! mode.next) {
     var pv = window.presenterView;
 		pv.slidenum = slidenum;
     pv.incrCurr = incrCurr
@@ -446,6 +468,13 @@ function track() {
       ws.send(JSON.stringify({ message: 'track', slide: slideName, time: elapsedTime}));
     }
   }
+}
+
+// Open a new tab with an online code editor, if so configured
+function editSlide() {
+  var slide = $("span#slideFilename").text();
+  var link  = editUrl + slide + ".md";
+  window.open(link);
 }
 
 function follow(slide) {

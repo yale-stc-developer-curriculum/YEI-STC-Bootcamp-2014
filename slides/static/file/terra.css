@@ -1,0 +1,28 @@
+/* custom css and js files included at the top level of your presentation will
+ * will be included in your presentation */
+
+/*.title-slide h1 {*/
+  /*color: white;*/
+/*}*/
+
+body {
+  background: #031634;
+  color: #E8DDCB;
+}
+
+.slide {
+  background: #033649;
+}
+
+.content h1 {
+  color: #CDB380;
+}
+
+.content {
+  color: #E8DDCB;
+}
+
+.subsection h1 {
+  background: #CDB380;
+  color: #033649;
+}

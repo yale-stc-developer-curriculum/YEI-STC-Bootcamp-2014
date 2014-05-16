@@ -1,18 +1,8 @@
 if (! this.sh_languages) {
   this.sh_languages = {};
 }
-sh_languages['puppet'] = [
+sh_languages['docker'] = [
   [
-    [
-      /\b(?:require)\b/g,
-      'sh_preproc',
-      -1
-    ],
-    [
-      /'?puppet:\/\/[A-Za-z0-9_\.\/\-_~]+(?:>?)'?/g,
-      'sh_puppet_uri',
-      -1
-    ],
     [
       /\b[+-]?(?:(?:0x[A-Fa-f0-9]+)|(?:(?:[\d]*\.)?[\d]+(?:[eE][+-]?[\d]+)?))u?(?:(?:int(?:8|16|32|64))|L)?\b/g,
       'sh_number',
@@ -49,37 +39,7 @@ sh_languages['puppet'] = [
       -1
     ],
     [
-      /=>|\+>/g,
-      'sh_hashrocket',
-      -1
-    ],
-    [
-      /\b(?:class|define|node)\b/g,
-      'sh_param',
-      -1
-    ],
-    [
-      /\b(?:present|absent|purged|latest|installed|running|stopped|mounted|unmounted|role|configured|file|directory|link)\b/g,
-      'sh_ensure',
-      -1
-    ],
-    [
-      /[A-Z][A-Za-z0-9]+\[.*\]/g,
-      'sh_reference',
-      -1
-    ],
-    [
-      /\b(?:alert|crit|debug|emerg|err|fail|include|info|notice|realize|require|search|tag|warning)\b/g,
-      'sh_function',
-      -1
-    ],
-    [
-      /\b(?:defined|file|fqdn_rand|generate|inline_template|regsubst|sha1|shellquote|split|sprintf|tagged|template|versioncmp)\b/g,
-      'sh_function',
-      -1
-    ],
-    [
-      /\b(?:true|false|undef|import|inherits|include|case|default|if|else|elsif)\b/g,
+      /\b(?:FROM|MAINTAINER|ENV|ADD|RUN|WORKDIR|VOLUME|ONBUILD|CMD|ENTRYPOINT|EXPOSE|USER)\b/g,
       'sh_keyword',
       -1
     ],
@@ -87,11 +47,6 @@ sh_languages['puppet'] = [
       /(?:^\=begin)/g,
       'sh_comment',
       4
-    ],
-    [
-      /(?:\$[#]?|@@|@)(?:[A-Za-z0-9_]+|'|\"|\/)/g,
-      'sh_type',
-      -1
     ],
     [
       /[A-Za-z0-9]+(?:\?|!)/g,

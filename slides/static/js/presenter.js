@@ -1,12 +1,15 @@
 // presenter js
 var slaveWindow = null;
+var nextWindow = null;
 
 var paceData = [];
 
 $(document).ready(function(){
-  // attempt to open another window for the presentation. This may fail if
-  // popup blockers are enabled. In that case, the presenter needs to manually
-  // open the window by hitting the 'slave window' button.
+  // set up the presenter modes
+  mode = { track: false, follow: true, update: true, slave: false, next: false};
+
+  // attempt to open another window for the presentation if the mode defaults
+  // to enabling this. It does not by default, so this is likely a no-op.
   openSlave();
 
   // the presenter window doesn't need the reload on resize bit
@@ -60,9 +63,6 @@ $(document).ready(function(){
     bind('swipeleft', presNextStep).  // next
     bind('swiperight', presPrevStep); // prev
 
-  // set up the presenter modes
-  mode = { track: false, follow: true, update: true };
-
   $('#remoteToggle').change( toggleFollower );
   $('#followerToggle').change( toggleUpdater );
 
@@ -104,34 +104,109 @@ function popupLoader(elem, page, id, event)
 }
 
 function reportIssue() {
-  var slide  = $("span#slideFile").text();
-  var issues = $("span#issueUrl").text();
-  var link = issues + encodeURIComponent('Issue with slide: ' + slide);
+  var slide = $("span#slideFile").text();
+  var link  = issueUrl + encodeURIComponent('Issue with slide: ' + slide);
   window.open(link);
+}
+
+function editSlide() {
+  var slide = $("span#slideFile").text();
+  var link  = editUrl + slide + ".md";
+  window.open(link);
+}
+
+function toggleSlave() {
+  mode.slave = !mode.slave;
+  openSlave();
 }
 
 function openSlave()
 {
-  try {
-    if(slaveWindow == null || typeof(slaveWindow) == 'undefined' || slaveWindow.closed){
-        slaveWindow = window.open('/' + window.location.hash);
+  if (mode.slave) {
+    try {
+      if(slaveWindow == null || typeof(slaveWindow) == 'undefined' || slaveWindow.closed){
+          slaveWindow = window.open('/' + window.location.hash, 'toolbar');
+      }
+      else if(slaveWindow.location.hash != window.location.hash) {
+        // maybe we need to reset content?
+        slaveWindow.location.href = '/' + window.location.hash;
+      }
+
+      // maintain the pointer back to the parent.
+      slaveWindow.presenterView = window;
+      slaveWindow.mode = { track: false, slave: true, follow: false };
+
+      $('#slaveWindow').addClass('enabled');
     }
-    else if(slaveWindow.location.hash != window.location.hash) {
-      // maybe we need to reset content?
-      slaveWindow.location.href = '/' + window.location.hash;
+    catch(e) {
+      console.log('Failed to open or connect slave window. Popup blocker?');
     }
 
-    // maintain the pointer back to the parent.
-    slaveWindow.presenterView = window;
-    slaveWindow.mode = { track: false, slave: true, follow: false };
+    // Set up a maintenance loop to keep the connection between windows. I wish there were a cleaner way to do this.
+    if (typeof maintainSlave == 'undefined') {
+      maintainSlave = setInterval(openSlave, 1000);
+    }
   }
-  catch(e) {
-    console.log('Failed to open or connect slave window. Popup blocker?');
+  else {
+    try {
+      slaveWindow && slaveWindow.close();
+      $('#slaveWindow').removeClass('enabled');
+    }
+    catch (e) {
+      console.log('Slave window failed to close properly.');
+    }
   }
+}
 
-  // Set up a maintenance loop to keep the connection between windows. I wish there were a cleaner way to do this.
-  if (typeof maintainSlave == 'undefined') {
-    maintainSlave = setInterval(openSlave, 1000);
+function nextSlideNum(url) {
+  // Some fudging because the first slide is slide[0] but numbered 1 in the URL
+  console.log(typeof(url));
+  var snum;
+  if (typeof(url) == 'undefined') { snum = currentSlideFromParams()+1; }
+  else { snum = currentSlideFromParams()+2; }
+  return snum;
+}
+
+function toggleNext() {
+  mode.next = !mode.next;
+  openNext();
+}
+
+function openNext()
+{
+  if (mode.next) {
+    try {
+      if(nextWindow == null || typeof(nextWindow) == 'undefined' || nextWindow.closed){
+          nextWindow = window.open('/?track=false&feedback=false&next=true#' + nextSlideNum(true),'','width=300,height=200');
+      }
+      else if(nextWindow.location.hash != '#' + nextSlideNum(true)) {
+        // maybe we need to reset content?
+        nextWindow.location.href = '/?track=false&feedback=false&next=true#' + nextSlideNum(true);
+      }
+
+      // maintain the pointer back to the parent.
+      nextWindow.presenterView = window;
+      nextWindow.mode = { track: false, next: true, follow: true };
+
+      $('#nextWindow').addClass('enabled');
+    }
+    catch(e) {
+      console.log('Failed to open or connect next window. Popup blocker?');
+    }
+
+    // Set up a maintenance loop to keep the connection between windows. I wish there were a cleaner way to do this.
+    //if (typeof maintainNext == 'undefined') {
+    //  maintainNext = setInterval(openNext, 1000);
+    //}
+  }
+  else {
+    try {
+      nextWindow && nextWindow.close();
+      $('#nextWindow').removeClass('enabled');
+    }
+    catch (e) {
+      console.log('Next window failed to close properly.');
+    }
   }
 }
 
@@ -247,11 +322,12 @@ function register() {
 
 function presPrevStep()
 {
-    prevStep();
-    try { slaveWindow.prevStep(false) } catch (e) {};
-    postSlide();
+  prevStep();
+  try { slaveWindow.prevStep(false) } catch (e) {};
+  try { nextWindow.gotoSlide(nextSlideNum()) } catch (e) {};
+  postSlide();
 
-    update();
+  update();
 }
 
 function presNextStep()
@@ -261,8 +337,9 @@ function presNextStep()
     incrCurr = slaveWindow.incrCurr
     incrSteps = slaveWindow.incrSteps
 */
-	nextStep();
+  nextStep();
 	try { slaveWindow.nextStep(false) } catch (e) {};
+  try { nextWindow.gotoSlide(nextSlideNum()) } catch (e) {};
 	postSlide();
 
 	update();

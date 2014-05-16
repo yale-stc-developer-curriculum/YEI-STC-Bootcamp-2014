@@ -4,11 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Something</title>
+  <title>YEI Tech Bootcamp 2014</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
 
   <link rel="stylesheet" href=".//css/reset.css" type="text/css"/>
+
+  
 
   <link type="text/css" href=".//css/fg.menu.css" media="screen" rel="stylesheet" />
   <link type="text/css" href=".//css/theme/ui.all.css" media="screen" rel="stylesheet" />
@@ -39,23 +41,24 @@
     
       <script type="text/javascript" src=".//js/sh_lang/sh_ruby.min.js"></script>
     
-      <script type="text/javascript" src=".//js/sh_lang/sh_erlang.min.js"></script>
-    
-      <script type="text/javascript" src=".//js/sh_lang/sh_coffeescript.min.js"></script>
-    
   
 
   
     
-    <link rel="stylesheet" href=".//file/something.css" type="text/css"/>
+    <link rel="stylesheet" href=".//file/dreammagnet.css" type="text/css"/>
+  
+    
+    <link rel="stylesheet" href=".//file/terra.css" type="text/css"/>
   
 
   
 
   <script type="text/javascript">
-  $(function(){
+    $(function(){
       setupPreso(false, './');
-  });
+    });
+
+    editUrl  = "";
   </script>
 
 </head>
@@ -67,37 +70,6 @@
 <a tabindex="1" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="stylemenu"><span class="ui-icon ui-icon-triangle-1-s"></span>styles</a>
 <div id="stylepicker" class="hidden"></div>
 
-<div id="feedbackWrapper">
-    <div id="feedbackSidebar">
-        <img id="feedbackActivity" src="css/spinner.gif" />
-        <h3>Live Interaction</h3>
-        <div class="row">
-          <h4>The presenter should...</h4>
-          <span class="buttonWrapper slower"><button id="paceSlower">Slow Down</button></span>
-          <span class="buttonWrapper faster"><button id="paceFaster">Speed Up</button></span>
-        </div>
-        <div class="row">
-          <textarea id="question"></textarea>
-          <button id="askQuestion">Ask a Question</button>
-        </div>
-        <hr />
-        <h3>Material Feedback</h3>
-        <div class="row">
-          <h4>This slide is...</h4>
-          Terrible
-          <input type="radio" name="rating" value="1"></input>
-          <input type="radio" name="rating" value="2"></input>
-          <input type="radio" name="rating" value="3"></input>
-          <input type="radio" name="rating" value="4"></input>
-          <input type="radio" name="rating" value="5"></input>
-          Awesome
-          <textarea id="feedback"></textarea>
-          <button id="sendFeedback">Send Feedback</button>
-        </div>
-        <div id="disclaimer">All features are anonymous</div>
-    </div>
-    <div id="feedbackHandle"></div>
-</div>
 
 <div id="help">
   <table>
@@ -133,26 +105,20 @@
 </div>
 
 <div id="slides" class="offscreen" style="display:none;">
-<div id="one/slidesA" class="slide title-slide" data-transition="none"><div class="content title-slide" ref="one/slidesA/1">
-<div class="notes">
-<p>first slide</p>
-</div>
-
-<h1>ST Stuff</h1></div>
-</div><div id="one/slidesA" class="slide bullets incremental" data-transition="fade"><div class="content bullets incremental" ref="one/slidesA/2">
-<div class="notes">
-<p>something something something something something something something something something something something something something something something dark side</p>
-</div>
-
-<h1>ST Locations</h1>
+<div id="Ruby I/slidesA" class="slide title-slide" data-transition="none"><div class="content title-slide" ref="Ruby I/slidesA/1">
+<h1>Welcome To The YEI Tech Bootcamp!</h1></div>
+</div><div id="Ruby I/slidesA" class="slide bullets incremental" data-transition="fade"><div class="content bullets incremental" ref="Ruby I/slidesA/2">
+<h1>Webpages</h1>
 
 <ul>
-<li>TTO</li>
-<li>io</li>
-<li>Sage Hall</li>
+<li>HTML is structure</li>
+<li>CSS is style</li>
+<li>JS is interactivity</li>
 </ul></div>
-</div><div id="one/slidesA" class="slide bullets" data-transition="none"><div class="content bullets" ref="one/slidesA/3">
-<h1>Third Slide</h1>
+</div><div id="Ruby I/slidesA" class="slide bullets" data-transition="none"><div class="content bullets" ref="Ruby I/slidesA/3">
+<h1>Separation of Concerns</h1>
+
+<p>*</p>
 
 <ul>
 <li>Sometimes bullet items
@@ -172,13 +138,26 @@
 </li>
 </ul><p>Also, sometimes you just want to have plain text sitting in the middle
 of the screen. The quick brown fox jumps over the lazy dog.</p></div>
-</div><div id="one/slidesA" class="slide center" data-transition="scrollUp"><div class="content center" ref="one/slidesA/4">
-<div class="notes">
-<p>another dark side</p>
-</div>
+</div><div id="Ruby I/slidesA" class="slide center" data-transition="scrollUp"><div class="content center" ref="Ruby I/slidesA/4">
+<p><img src="./file/Ruby I/octocat.png" alt="octocat"/></p></div>
+</div><div id="Ruby I/slidesA" class="slide " data-transition="none"><div class="content " ref="Ruby I/slidesA/5">
+<h1>Javascript Example</h1>
 
-<p><img src="./file/one/octocat.png" alt="octocat"/></p></div>
-</div><div id="one/slidesB" class="slide " data-transition="none"><div class="content " ref="one/slidesB/1">
+<pre class="sh_javascript"><code>alert("lolz");</code></pre></div>
+</div><div id="Ruby I/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="Ruby I/slidesA/6">
+<h1>Ruby Example</h1>
+
+<pre class="sh_ruby"><code>10.times { puts "Whee!" }</code></pre></div>
+</div><div id="Ruby I/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="Ruby I/slidesA/7">
+<pre class="sh_ruby"><code>def add(a, b)
+  a + b
+end
+add 1, 2
+add 1, 2</code></pre></div>
+</div><div id="Ruby I/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="Ruby I/slidesA/8">
+<pre class="sh_javascript"><code>alert("lol");
+alert("lolz");</code></pre></div>
+</div><div id="Ruby I/slidesB" class="slide " data-transition="none"><div class="content " ref="Ruby I/slidesB/1">
 <div class="notes">
 <p>notes for my slide</p>
 </div>
@@ -196,12 +175,12 @@ of the screen. The quick brown fox jumps over the lazy dog.</p></div>
 
   document.onkeydown = keyDown
 }</code></pre></div>
-</div><div id="one/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="one/slidesB/2">
+</div><div id="Ruby I/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="Ruby I/slidesB/2">
 <pre><code><code class="command">$ git commit -am 'incremental bullet points working'</code>
 <code class="result">[master ac5fd8a] incremental bullet points working
  2 files changed, 32 insertions(+), 5 deletions(-)
 </code></code></pre></div>
-</div><div id="one/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="one/slidesB/3">
+</div><div id="Ruby I/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="Ruby I/slidesB/3">
 <pre><code><code class="command">$ git commit -am 'incremental bullet points working'</code>
 <code class="result">[bmaster ac5fd8a] incremental bullet points working
  2 files changed, 32 insertions(+), 5 deletions(-)
@@ -210,7 +189,7 @@ of the screen. The quick brown fox jumps over the lazy dog.</p></div>
 <code class="result">[cmaster ac5fd8a] incremental bullet points working
  2 files changed, 32 insertions(+), 5 deletions(-)
 </code></code></pre></div>
-</div><div id="one/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="one/slidesB/4">
+</div><div id="Ruby I/slidesB" class="slide commandline incremental" data-transition="none"><div class="content commandline incremental" ref="Ruby I/slidesB/4">
 <pre><code><code class="command"># root command</code>
 <code class="result">some output
 
@@ -226,60 +205,20 @@ a
 
 blank line
 </code></code></pre></div>
-</div><div id="two/slidesA" class="slide subsection" data-transition="none"><div class="content subsection" ref="two/slidesA/1">
-<h1>Subsection Slide</h1></div>
-</div><div id="two/slidesA" class="slide " data-transition="none"><div class="content " ref="two/slidesA/2">
-<h1>Code Slide</h1>
+</div><div id="Git/01slide" class="slide " data-transition="none"><div class="content " ref="Git/01slide">
+<div class="border">Casey Watts@13</div>
 
-<pre class="sh_ruby"><code>require 'sinatra/base'
+<p/><div class="main">
 
-class MyApp &lt; Sinatra::Base
-  set :sessions, true
-  set :foo, 'bar'
+<h1>A Template</h1>
 
-  get '/' do
-    'Hello world!'
-  end
-end </code></pre></div>
-</div><div id="two/slidesA" class="slide " data-transition="none"><div class="content " ref="two/slidesA/3">
-<pre class="sh_erlang"><code>    Output = process(Input, []).
-
-    process([First|Rest], Output) -&gt;
-        NewFirst = do_stuff(First),
-        process(Rest, [NewFirst|Output]);
-
-    process([], Output) -&gt;
-        lists:reverse(Output).</code></pre></div>
-</div><div id="two/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="two/slidesA/4">
-<h1>Executable JavaScript</h1>
-
-<pre class="sh_javascript"><code>result = 3 + 3;</code></pre></div>
-</div><div id="two/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="two/slidesA/5">
-<h1>Executable Ruby</h1>
-
-<pre class="sh_ruby"><code>result = [1, 2, 3].map { |n| n*7 }</code></pre></div>
-</div><div id="two/slidesA" class="slide execute" data-transition="none"><div class="content execute" ref="two/slidesA/6">
-<h1>Executable Coffeescript</h1>
-
-<pre class="sh_coffeescript"><code>add = (a, b) -&gt;
-  "#{a}+#{b} is #{a+b}"
-
-result = add 2, 3</code></pre></div>
-</div><div id="two/slidesA" class="slide " data-transition="none"><div class="content " ref="two/slidesA/7">
-<h1>Write your own slides</h1>
-
-<h2>Using <a href="http://daringfireball.net/projects/markdown/">markdown</a>
-</h2>
-
-<pre><code>!SLIDE
-
-# Title of the slide #
-
-How easy is this?
-</code></pre></div>
-</div><div id="three/js-events" class="slide subsection" data-transition="none"><div class="content subsection" ref="three/js-events/1">
+<p>Really? How many slides? -- 17
+</p>
+<div/>
+</div></div>
+</div><div id="Ruby II/js-events" class="slide subsection" data-transition="none"><div class="content subsection" ref="Ruby II/js-events/1">
 <h1>Custom events</h1></div>
-</div><div id="three/js-events" class="slide custom_and_unique_class" data-transition="none"><div class="content custom_and_unique_class" ref="three/js-events/2">
+</div><div id="Ruby II/js-events" class="slide custom_and_unique_class" data-transition="none"><div class="content custom_and_unique_class" ref="Ruby II/js-events/2">
 <h1>1st Example h1</h1>
 
 <script>
@@ -292,7 +231,7 @@ $(".custom_and_unique_class").bind("showoff:show", function (event) {
     .slideDown(300);
 });
 </script></div>
-</div><div id="three/js-events" class="slide prevent_default" data-transition="none"><div class="content prevent_default" ref="three/js-events/3">
+</div><div id="Ruby II/js-events" class="slide prevent_default" data-transition="none"><div class="content prevent_default" ref="Ruby II/js-events/3">
 <h1>2nd Example h1</h1>
 
 <script>
@@ -304,22 +243,11 @@ $(".prevent_default").bind("showoff:next", function (event) {
   }
 });
 </script></div>
-</div><div id="three/js-events" class="slide " data-transition="none"><div class="content " ref="three/js-events/4">
+</div><div id="Ruby II/js-events" class="slide " data-transition="none"><div class="content " ref="Ruby II/js-events/4">
 <h1>Switched</h1></div>
-</div><div id="four/01slide" class="slide " data-transition="none"><div class="content " ref="four/01slide">
-<div class="border">Foo Bar John@20</div>
-
-<p/><div class="main">
-
-<h1>A Template</h1>
-
-<p>Really? How many slides? -- 20
-</p>
-<div/>
-</div></div>
 </div></div>
 <div id="pauseScreen">
-  Paused !!!
+  Pawsed !!!
 </div>
 
 </body>
