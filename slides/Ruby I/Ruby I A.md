@@ -49,7 +49,8 @@ of the screen. The quick brown fox jumps over the lazy dog.
 
 
 !SLIDE execute
-	@@@ ruby
+	m
+  @@@ ruby
     def add(a, b)
       a + b
     end
