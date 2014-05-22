@@ -7,8 +7,6 @@
 
 !SLIDE bullets small
 # Today's Plan
-
-
 Today's Lab = Learn CLI The Hard Way (3-5h)
 
 - Proverbs & Stories (30 min)
@@ -50,6 +48,7 @@ Pick a group activity, like throwing a party or organizing a picnic. One player 
 - Learning Resources List
 - Slides
 
+
 !SLIDE
 # Github Repositories
 
@@ -58,3 +57,57 @@ Pick a group activity, like throwing a party or organizing a picnic. One player 
     - has lectures
 * Homework Repo
     - your personal homework repo
+
+
+!SLIDE subtitle
+#Learn Code The Hard Way
+
+!SLIDE
+##Learn Code The Hard Way
+
+- .DS_Store
+- `rm -rf /`
+
+
+!SLIDE
+#Is optimization worth it?
+
+
+!SLIDE center
+![Is It Worth The Time?](is_it_worth_the_time.png)
+
+
+!SLIDE
+#Customization Session
+- Split into 3 tables by computer type (Windows vs OS X).
+- Go to the "Learning Resources" section on CLI.
+- Google, try things, share what you find.
+
+
+!SLIDE
+#Community Events
+- NewHaven.io
+- Weekly Hack Night @ The Grove
+- hci-class.org + YEI discussion group
+
+
+!SLIDE center
+![The Grove](TheGrove.png)
+
+
+!SLIDE
+#Tomorrow's Goals
+
+- TEAL Scavenger Hunt (60 min)
+- Finish Learn Code The Hard Way
+- Ruby Gems (45 min)
+- Git Review (45 min)
+- Git Groupwork (45 min)
+- Git Lab (3-5 hours)
+
+
+!SLIDE
+#Wrap-Up
+- Submit Homework (5-10 min)
+- Skills Evaluation (10-15 min)
+- Daily Reflection (5 min)
