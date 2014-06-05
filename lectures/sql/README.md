@@ -108,5 +108,8 @@ The good news -- you will **never** need to worry about this!
 - time -- stores hour, minutes, second
 - timestamp -- stores year, month, day, hour, minutes, second
 
+#Resources
+
+[Basic SQL Syntax](http://www.w3schools.com/sql/default.asp)
 [SQL Data Types](http://www.w3schools.com/sql/sql_datatypes_general.asp)
 
