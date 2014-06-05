@@ -41,9 +41,9 @@ SQL is a standard language for accessing information from databases.
 
 #SQL In-Class Exercise
 
-###Normally, to create our database we would run:
+###Normally, to create our database we would use the SQL command:
 ```sql
-> CREATE DATABASE my_db;
+CREATE DATABASE my_db;
 ```
 
 ###But using sqlite, we run:
@@ -61,6 +61,19 @@ column_name2 data_type(size),
 column_name3 data_type(size),
 ....
 );
+```
+
+To delete an entire table:
+```sql
+DROP TABLE table_name;
+```
+
+###Generally, we want to index our entries -- so we need to add a primary key!
+
+so we let's include the following column when we create our table:
+
+```sql
+ID INTEGER PRIMARY KEY   AUTOINCREMENT,
 ```
 
 ###We need to put some information into our tables.
@@ -108,5 +121,10 @@ The good news -- you will **never** need to worry about this!
 - time -- stores hour, minutes, second
 - timestamp -- stores year, month, day, hour, minutes, second
 
-[SQL Data Types](http://www.w3schools.com/sql/sql_datatypes_general.asp)
+#Resources
 
+[SQLite-specific syntax](http://www.tutorialspoint.com/sqlite/sqlite_overview.htm)
+
+[SQLite-specific data-types / affinity](http://www.tutorialspoint.com/sqlite/sqlite_data_types.htm)
+
+[SQL Syntax in General](http://www.w3schools.com/sql/default.asp)
