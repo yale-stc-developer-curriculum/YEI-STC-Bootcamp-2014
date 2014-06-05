@@ -41,9 +41,9 @@ SQL is a standard language for accessing information from databases.
 
 #SQL In-Class Exercise
 
-###Normally, to create our database we would run:
+###Normally, to create our database we would use the SQL command:
 ```sql
-> CREATE DATABASE my_db;
+CREATE DATABASE my_db;
 ```
 
 ###But using sqlite, we run:
@@ -65,7 +65,7 @@ column_name3 data_type(size),
 
 To delete an entire table:
 ```sql
-DROP TABLE table_name
+DROP TABLE table_name;
 ```
 
 ###Generally, we want to index our entries -- so we need to add a primary key!
