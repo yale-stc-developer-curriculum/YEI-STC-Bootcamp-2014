@@ -17,6 +17,13 @@ gem install sqlite3
 		- any other persistent information
 			- **persistent information**: any information you want available on the webpage *after* the client has closed your page and reset their session (cleared their cookies)
 
+#CRUD
+The four basic functions of persistent storage:
+- Create
+- Read
+- Update
+- Delete
+
 #Database Options
 - there are multiple database options out there, many of which Marcus overviewed last week.
 	- as a refresher, we have:
@@ -81,5 +88,25 @@ DELETE FROM table_name
 WHERE some_column=some_value;
 ```
 
+#SQL Data Types
+###The Basic Types
+- varchar(n) -- a character string of variable length. maximum length n.
+- int -- an integer in the range -2^31 to 2^31-1    (4 bytes)
+- boolean -- true / false
 
+###Numbers (cont.)
+- bit
+- smallint, bigint, tinyint
+- double (m,d)
+- float
+- decimal(p,s)
+
+The good news -- you will **never** need to worry about this!
+
+###Date / Times
+- date -- stores year, month, day
+- time -- stores hour, minutes, second
+- timestamp -- stores year, month, day, hour, minutes, second
+
+[SQL Data Types](http://www.w3schools.com/sql/sql_datatypes_general.asp)
 
