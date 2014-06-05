@@ -63,6 +63,19 @@ column_name3 data_type(size),
 );
 ```
 
+To delete an entire table:
+```sql
+DROP TABLE table_name
+```
+
+###Generally, we want to index our entries -- so we need to add a primary key!
+
+so we let's include the following column when we create our table:
+
+```sql
+ID INTEGER PRIMARY KEY   AUTOINCREMENT,
+```
+
 ###We need to put some information into our tables.
 ```sql
 INSERT INTO table_name (column1,column2,column3,...)
@@ -110,7 +123,8 @@ The good news -- you will **never** need to worry about this!
 
 #Resources
 
-[Basic SQL Syntax](http://www.w3schools.com/sql/default.asp)
+[SQLite-specific syntax](http://www.tutorialspoint.com/sqlite/sqlite_overview.htm)
 
-[SQL Data Types](http://www.w3schools.com/sql/sql_datatypes_general.asp)
+[SQLite-specific data-types / affinity](http://www.tutorialspoint.com/sqlite/sqlite_data_types.htm)
 
+[SQL Syntax in General](http://www.w3schools.com/sql/default.asp)
