@@ -5,5 +5,6 @@ template = "Hi, <%= name %>."
 
 renderer = ERB.new(template)
 
-puts output = renderer.result()
+output = renderer.result()
+puts output
 File.open('hello.html', 'w') {|f| f.write(output) }
