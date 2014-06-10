@@ -12,7 +12,8 @@
     {"section":"Ruby I"},
     {"section":"Git"},
     {"section":"Ruby II"},
-    {"section":"JavaScript"}
+    {"section":"JavaScript"},
+    {"section":"The Web"}
   ],
   "feedback": false
 }
