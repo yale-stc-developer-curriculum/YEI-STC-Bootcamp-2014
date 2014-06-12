@@ -2,25 +2,93 @@
 
 ###Remember when we used to define get / set methods by hand -- LOL!! Welcome to Ruby!
 
-- Please use the `attr_accessor :var` method to define reader and writer methods for all the instance variables, where `var` is the name of the variable
-	- `attr_accessor :var` calls both `attr_reader :var` and `attr_writer :var`
-	- `attr_reader :var` defines a "get"-ish method for the `var` instance variable
-		- `attr_reader :var` is equivalent to:
+- Let's supposed we have a `Person` class, defined as follows:
+
 ```ruby
-def var
-	@var
+class Person
+	def initialize(name)
+		@name = name
+	end
 end
 ```
-	
-- to access the value of `@var`, we would use ObjectName.var
-	- `attr_writer :var` defines a "set"-ish method for the `var` instance variable
-		- `attr_writer :var` is equivalent to:
+
+- In the past, we might have defined `get` and `set` methods:
+
 ```ruby
-def var=(value)
-	@var = value
+class Person
+	def initialize(name)
+		@name = name
+	end
+	def get_name
+		@name
+	end
+	def set_name(name)
+		@name = name
+	end
 end
 ```
-- to set the value of `@var` to "asdf", we could do any of the following:
-	- ObjectName.var=("asdf")   ---> we would *never* do this...
-	- ObjectName.var="asdf"
-	- ObjectName.var = "asdf"
+
+- But not any more!!! 
+- Let's use the `attr_accessor :name` method to define reader and writer methods 
+	- `attr_accessor :name` calls both `attr_reader :name` and `attr_writer :name`
+
+###attr_reader
+- `attr_reader :name` defines a "get"-ish method for the `name` instance variable
+	- `attr_reader :name` is equivalent to:
+```ruby
+def name
+	@name
+end
+```
+- to access the value of `@name`, we would use Person.name
+
+###attr_writer
+- `attr_writer :name` defines a "set"-ish method for the `name` instance variable
+	- `attr_writer :name` is equivalent to:
+```ruby
+def name=(value)
+	@name = value
+end
+```
+- to set the value of `@name` to "Casey", we could do any of the following:
+	- Person.name=("Casey")   ---> we would *never* do this...
+	- Person.name="Casey"
+	- Person.name = "Casey"
+
+#Our Person Class
+
+```ruby
+class Person
+	def initialize(name)
+		@name = name
+	end
+	attr_accessor :name
+end
+```
+
+###which is 100% equivalent to:
+
+```ruby
+class Person
+	def initialize(name)
+		@name = name
+	end
+	def name
+		@name
+	end
+	def name=(value)
+		@name = value
+	end
+end
+```
+
+##Using our methods
+
+```ruby 
+charlie = Person.new("Charlie")   # creates a Person object for with the name "Charlie"
+
+name = charlie.name   # saves the name of the charlie object to the variable name
+
+charlie.name = "Marcus"     #sets the name of the charlie object to "Marcus"
+
+```
