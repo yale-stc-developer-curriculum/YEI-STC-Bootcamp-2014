@@ -40,7 +40,7 @@ def name
 	@name
 end
 ```
-- to access the value of `@name`, we would use Person.name
+- to access the value of `@name`, we would use `charlie.name`  (assuming `charlie` is a `Person` object).
 
 ###attr_writer
 - `attr_writer :name` defines a "set"-ish method for the `name` instance variable
@@ -50,10 +50,10 @@ def name=(value)
 	@name = value
 end
 ```
-- to set the value of `@name` to "Casey", we could do any of the following:
-	- Person.name=("Casey")   ---> we would *never* do this...
-	- Person.name="Casey"
-	- Person.name = "Casey"
+- to set the `@name` variable of a `Person` object named `my_person` to "Casey", we could do any of the following:
+	- my_person.name=("Casey")   ---> we would *never* do this...
+	- my_person.name="Casey"
+	- my_person.name = "Casey"
 
 #Our Person Class
 
