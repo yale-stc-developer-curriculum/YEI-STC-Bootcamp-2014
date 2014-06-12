@@ -1,5 +1,7 @@
 require 'erb'
 
+arr = ["Thing 1","Thing 2","Thing 3"]
+
 name = "Charlie"
 template = "Hi, <%= name %>."
 
