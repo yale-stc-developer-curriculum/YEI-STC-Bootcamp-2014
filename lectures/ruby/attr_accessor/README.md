@@ -51,9 +51,9 @@ def name=(value)
 end
 ```
 - to set the `@name` variable of a `Person` object named `my_person` to "Casey", we could do any of the following:
-	- my_person.name=("Casey")   ---> we would *never* do this...
-	- my_person.name="Casey"
-	- my_person.name = "Casey"
+	- `my_person.name=("Casey")`   ---> we would *never* do this...
+	- `my_person.name="Casey"`
+	- `my_person.name = "Casey"`
 
 #Our Person Class
 
