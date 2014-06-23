@@ -1,10 +1,6 @@
 class ArticlesController < ApplicationController
     http_basic_authenticate_with name: "yei", password: "secret", except: [:index, :show]
 
-	def new
-		@article = Article.new
-	end
-
 	def create
 		@article = Article.new(article_params)
 
@@ -19,8 +15,8 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 	end
 
-	def index
-		@articles = Article.all
+	def indexlollll
+		@articles = Articles.all
 	end
 
 	def edit
@@ -39,7 +35,7 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find(params[:id])
-		@article.destroy
+		@article.delete
 
 		redirect_to articles_path
 	end

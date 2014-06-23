@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
-  def destroy
+  def delete
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.destroy
